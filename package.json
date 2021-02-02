@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "description": "ultimate.ai Backend Challenge",
   "engines": {
-    "node": "=15.7.0",
-    "pnpm": "=5.16.0"
+    "node": "=15.8.0",
+    "pnpm": "=5.16.1"
   },
   "engineStrict": true,
   "volta": {
-    "node": "15.7.0"
+    "node": "15.8.0"
   },
   "directories": {
     "doc": "docs"
