@@ -1,6 +1,7 @@
 import util from 'util';
 import mocha from 'mocha';
 import chai from 'chai';
+import dotenv from 'dotenv';
 import {
   LibAICommunicator,
 } from '../LibAICommunicator.mjs';
@@ -14,18 +15,22 @@ const {
   expect,
 } = chai;
 
+dotenv.config({
+  path: './specs/.env',
+});
+
 // FIXME: rm this when all tests are ready
 
 describe('LibAICommunicator', () => {
   const LibAICommunicatorConfig = Object.freeze({
-    apiKey: '825765d4-7f8d-4d83-bb03-9d45ac9c27c0',
+    apiKey: process.env.API_KEY,
     servers: {
       prefixUrl: 'https://chat.ultimate.ai/api',
       paths: {
         intents: 'intents',
       },
     },
-    botId: '5f74865056d7bb000fcd39ff',
+    botId: process.env.BOT_ID,
   });
 
   it('should getIntents for "Hello"', async () => {
