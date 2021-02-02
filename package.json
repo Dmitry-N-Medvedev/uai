@@ -1,0 +1,39 @@
+{
+  "name": "@dmitry-n-medvedev/uai",
+  "version": "0.0.0",
+  "description": "ultimate.ai Backend Challenge",
+  "engines": {
+    "node": "=15.7.0",
+    "pnpm": "=5.16.0"
+  },
+  "engineStrict": true,
+  "volta": {
+    "node": "15.7.0"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "clean-install": "pnpm --recursive exec -- rm -rf node_modules && pnpm --recursive install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dmitry-N-Medvedev/uai.git"
+  },
+  "author": "Dmitry N. Medvedev <dmitry.medvedev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dmitry-N-Medvedev/uai/issues"
+  },
+  "homepage": "https://github.com/Dmitry-N-Medvedev/uai#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.17.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^4.1.3"
+  }
+}
