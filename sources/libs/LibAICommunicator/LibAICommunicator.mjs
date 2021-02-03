@@ -49,7 +49,7 @@ export class LibAICommunicator {
     }
 
     const message = {
-      message: humanSaid,
+      message: humanSaid.toString(),
       botId: this.#config.botId,
       conversationId: this.#conversationId,
     };
@@ -67,12 +67,15 @@ export class LibAICommunicator {
     } = reply;
 
     if (statusCode !== HTTPStatusCodes.SUCCESS) {
+      this.#degublog({
+        statusCode,
+        statusMessage,
+      });
+
       throw new Error(statusMessage);
     }
 
     this.#degublog({
-      statusCode,
-      statusMessage,
       intents,
     });
 
