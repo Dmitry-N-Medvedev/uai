@@ -12,7 +12,7 @@ export const filterIntents = (intents = null) => {
   }
 
   if (intents.length === 0) {
-    throw new TypeError('intents is empty');
+    throw new EvalError('intents is empty');
   }
 
   debuglog({
