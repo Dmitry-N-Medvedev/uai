@@ -24,8 +24,6 @@ dotenv.config({
   path: './specs/.env',
 });
 
-// FIXME: rm this when all tests are ready
-
 describe('LibAICommunicator', () => {
   const LibAICommunicatorConfig = Object.freeze({
     apiKey: process.env.API_KEY,
