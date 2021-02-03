@@ -100,6 +100,40 @@ importers:
       nanoid: ^3.1.20
       node-fetch: ^2.6.1
       redis-fast-driver: ^2.1.5
+  sources/libs/LibReplyResolver:
+    dependencies:
+      '@dmitry-n-medvedev/libredisadapter': link:../LibRedisAdapter
+      redis-fast-driver: 2.1.5
+    devDependencies:
+      '@dmitry-n-medvedev/libreplywriter': link:../LibReplyWriter
+      c8: 7.5.0
+      chai: 4.2.0
+      codecov: 3.8.1
+      cross-env: 7.0.3
+      dotenv: 8.2.0
+      eslint: 7.19.0
+      eslint-config-airbnb-base: 14.2.1_846d62cfa210dc3f225625c64ae883be
+      eslint-plugin-chai-friendly: 0.6.0_eslint@7.19.0
+      eslint-plugin-import: 2.22.1_eslint@7.19.0
+      eslint-plugin-node: 11.1.0_eslint@7.19.0
+      mocha: 8.2.1
+      nanoid: 3.1.20
+    specifiers:
+      '@dmitry-n-medvedev/libredisadapter': workspace:^0.0.0
+      '@dmitry-n-medvedev/libreplywriter': workspace:^0.0.0
+      c8: ^7.5.0
+      chai: ^4.2.0
+      codecov: ^3.8.1
+      cross-env: ^7.0.3
+      dotenv: ^8.2.0
+      eslint: ^7.19.0
+      eslint-config-airbnb-base: ^14.2.1
+      eslint-plugin-chai-friendly: ^0.6.0
+      eslint-plugin-import: ^2.22.1
+      eslint-plugin-node: ^11.1.0
+      mocha: ^8.2.1
+      nanoid: ^3.1.20
+      redis-fast-driver: ^2.1.5
   sources/libs/LibReplyWriter:
     dependencies:
       '@dmitry-n-medvedev/libredisadapter': link:../LibRedisAdapter
