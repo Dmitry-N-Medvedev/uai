@@ -35,7 +35,7 @@ describe('LibIntentsFilter', () => {
     },
   ]);
 
-  it.only('should return an intent with the highest confidence score', async () => {
+  it('should return an intent with the highest confidence score', async () => {
     const result = filterIntents(intents);
 
     expect(result.confidence).to.equal(highestConfidence);
