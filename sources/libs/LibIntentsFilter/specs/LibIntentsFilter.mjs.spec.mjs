@@ -40,4 +40,37 @@ describe('LibIntentsFilter', () => {
 
     expect(result.confidence).to.equal(highestConfidence);
   });
+
+  it('should fail w/ erroneous intents', async () => {
+    const erroneousIntents = Object.freeze([
+      {
+        intents: null,
+        error: ReferenceError,
+      },
+      {
+        intents: undefined,
+        error: ReferenceError,
+      },
+      {
+        intents: 'not-an-array',
+        error: TypeError,
+      },
+      {
+        intents: [],
+        error: EvalError,
+      },
+    ]);
+
+    for (const erroneousIntent of erroneousIntents) {
+      let error = null;
+
+      try {
+        filterIntents(erroneousIntent.intents);
+      } catch (caughtError) {
+        error = caughtError;
+      } finally {
+        expect(error).to.be.an.instanceof(erroneousIntent.error);
+      }
+    }
+  });
 });
