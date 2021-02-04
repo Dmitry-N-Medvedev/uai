@@ -80,7 +80,7 @@ describe('LibReplyResolverServer', () => {
     libReplyResolverServer = null;
   });
 
-  it.only(`should resolve reply an the "${(replies[0]).name}" intent`, async () => {
+  it(`should resolve reply an the "${(replies[0]).name}" intent`, async () => {
     const intent = 'hello';
     const { body: { reply } } = await client.post('resolve', {
       body: JSON.stringify(intent),
