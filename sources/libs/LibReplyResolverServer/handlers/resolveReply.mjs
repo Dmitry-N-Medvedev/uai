@@ -5,6 +5,14 @@ import {
 const OK_STATUS = '200 OK';
 
 export const resolveReply = async (res, req, libReplyResolver = null, logger = null) => {
+  if (libReplyResolver === null) {
+    throw new ReferenceError('libReplyResolver is undefined');
+  }
+
+  if (logger === null) {
+    throw new ReferenceError('logger is undefined');
+  }
+
   res.aborted = false;
 
   res.onAborted(() => {

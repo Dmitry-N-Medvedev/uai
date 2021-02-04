@@ -1,4 +1,8 @@
-export const readJson = (res, req, debuglog) => new Promise((resolve, reject) => {
+export const readJson = (res, req, debuglog = null) => new Promise((resolve, reject) => {
+  if (debuglog === null) {
+    throw new ReferenceError('debuglog is undefined');
+  }
+
   res.onAborted(() => reject());
 
   let buffer;
