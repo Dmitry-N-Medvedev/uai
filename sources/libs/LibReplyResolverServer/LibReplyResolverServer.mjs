@@ -27,6 +27,11 @@ export class LibReplyResolverServer {
     }
 
     this.#debuglog = util.debuglog(this.constructor.name);
+
+    if (typeof config.uWS.port === 'undefined' || config.uWS.port === null) {
+      throw new ReferenceError('uWS.port is undefined');
+    }
+
     this.#config = Object.freeze({ ...config });
   }
 

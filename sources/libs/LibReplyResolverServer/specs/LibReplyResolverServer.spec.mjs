@@ -97,17 +97,38 @@ describe('LibReplyResolverServer', () => {
         config: null,
         exception: ReferenceError,
       },
+      {
+        config: {
+          ...libReplyResolverServerConfig,
+          ...{
+            uWS: {
+              port: null,
+            },
+          },
+        },
+        exception: ReferenceError,
+      },
     ]);
 
-    for (const config of configs) {
+    for await (const config of configs) {
       let error = null;
+      let server = null;
 
       try {
-        // eslint-disable-next-line no-new
-        new LibReplyResolverServer(config.config);
+        server = new LibReplyResolverServer(config.config) ?? null;
+
+        await server.start();
+
+        debuglog({
+          server,
+        });
       } catch (anError) {
         error = anError;
       } finally {
+        if (server !== null) {
+          await server.stop();
+        }
+
         expect(error).to.be.an.instanceof(config.exception);
       }
     }
