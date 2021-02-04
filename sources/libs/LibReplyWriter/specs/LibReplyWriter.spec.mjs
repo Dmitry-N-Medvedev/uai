@@ -96,6 +96,6 @@ describe('LibReplyWriter', () => {
 
     const kvs = (replies.map((item) => [item.name, item.reply])).flat();
 
-    expect(kvs).to.have.ordered.members(dbReplies);
+    expect(kvs).to.have.members(dbReplies);
   });
 });
