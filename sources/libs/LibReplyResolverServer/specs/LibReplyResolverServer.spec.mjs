@@ -90,4 +90,18 @@ describe('LibReplyResolverServer', () => {
 
     expect(reply).to.equal((replies[0]).reply);
   });
+
+  it.only('should fail to start the server w/ indefined config', async () => {
+    const undefinedConfig = null;
+    let error = null;
+
+    try {
+      // eslint-disable-next-line no-new
+      new LibReplyResolverServer(undefinedConfig);
+    } catch (referenceError) {
+      error = referenceError;
+    } finally {
+      expect(error).to.be.an.instanceof(ReferenceError);
+    }
+  });
 });
