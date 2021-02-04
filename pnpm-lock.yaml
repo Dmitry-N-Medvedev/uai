@@ -134,6 +134,44 @@ importers:
       mocha: ^8.2.1
       nanoid: ^3.1.20
       redis-fast-driver: ^2.1.5
+  sources/libs/LibReplyResolverServer:
+    dependencies:
+      '@dmitry-n-medvedev/libredisadapter': link:../LibRedisAdapter
+      '@dmitry-n-medvedev/libreplyresolver': link:../LibReplyResolver
+      got: 11.8.1
+      uWebSockets.js: github.com/uNetworking/uWebSockets.js/b4bc740f46f1508c0f342b999db4d1f9dc80deab
+    devDependencies:
+      '@dmitry-n-medvedev/libreplywriter': link:../LibReplyWriter
+      c8: 7.5.0
+      chai: 4.2.0
+      codecov: 3.8.1
+      cross-env: 7.0.3
+      dotenv: 8.2.0
+      eslint: 7.19.0
+      eslint-config-airbnb-base: 14.2.1_846d62cfa210dc3f225625c64ae883be
+      eslint-plugin-chai-friendly: 0.6.0_eslint@7.19.0
+      eslint-plugin-import: 2.22.1_eslint@7.19.0
+      eslint-plugin-node: 11.1.0_eslint@7.19.0
+      mocha: 8.2.1
+      nanoid: 3.1.20
+    specifiers:
+      '@dmitry-n-medvedev/libredisadapter': workspace:^0.0.0
+      '@dmitry-n-medvedev/libreplyresolver': workspace:^0.0.0
+      '@dmitry-n-medvedev/libreplywriter': workspace:^0.0.0
+      c8: ^7.5.0
+      chai: ^4.2.0
+      codecov: ^3.8.1
+      cross-env: ^7.0.3
+      dotenv: ^8.2.0
+      eslint: ^7.19.0
+      eslint-config-airbnb-base: ^14.2.1
+      eslint-plugin-chai-friendly: ^0.6.0
+      eslint-plugin-import: ^2.22.1
+      eslint-plugin-node: ^11.1.0
+      got: ^11.8.1
+      mocha: ^8.2.1
+      nanoid: ^3.1.20
+      uWebSockets.js: github:uNetworking/uWebSockets.js#v18.14.0
   sources/libs/LibReplyWriter:
     dependencies:
       '@dmitry-n-medvedev/libredisadapter': link:../LibRedisAdapter
@@ -1135,7 +1173,6 @@ packages:
     resolution:
       integrity: sha512-tsAQNx32a8CoFhjhijUIhI4kccIAgmGhy8LZMZgGfmXcpMbPRUqn5LWmgRttILi6yeGmBJd2xsPkFMs0PzgPCw==
   /@sindresorhus/is/4.0.0:
-    dev: true
     engines:
       node: '>=10'
     resolution:
@@ -1143,7 +1180,6 @@ packages:
   /@szmarczak/http-timer/4.0.5:
     dependencies:
       defer-to-connect: 2.0.0
-    dev: true
     engines:
       node: '>=10'
     resolution:
@@ -1158,13 +1194,11 @@ packages:
     dependencies:
       '@types/http-cache-semantics': 4.0.0
       '@types/keyv': 3.1.1
-      '@types/node': 14.14.22
+      '@types/node': 14.14.25
       '@types/responselike': 1.0.0
-    dev: true
     resolution:
       integrity: sha512-ykFq2zmBGOCbpIXtoVbz4SKY5QriWPh3AjyU4G74RYbtt5yOc5OfaY75ftjg7mikMOla1CTGpX3lLbuJh8DTrQ==
   /@types/http-cache-semantics/4.0.0:
-    dev: true
     resolution:
       integrity: sha512-c3Xy026kOF7QOTn00hbIllV1dLR9hG9NkSrLQgCVs8NF6sBU+VGWjD3wLPhmh1TYAc7ugCFsvHYMN4VcBN1U1A==
   /@types/is-windows/1.0.0:
@@ -1181,18 +1215,15 @@ packages:
       integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
   /@types/keyv/3.1.1:
     dependencies:
-      '@types/node': 14.14.22
-    dev: true
+      '@types/node': 14.14.25
     resolution:
       integrity: sha512-MPtoySlAZQ37VoLaPcTHCu1RWJ4llDkULYZIzOYxlhxBqYPB0RsRlmMU0R6tahtFe27mIdkHV+551ZWV4PLmVw==
-  /@types/node/14.14.22:
-    dev: true
+  /@types/node/14.14.25:
     resolution:
-      integrity: sha512-g+f/qj/cNcqKkc3tFqlXOYjrmZA+jNBiDzbP3kH+B+otKFqAdPgVTGP1IeKRdMml/aE69as5S4FqtxAbl+LaMw==
+      integrity: sha512-EPpXLOVqDvisVxtlbvzfyqSsFeQxltFbluZNRndIb8tr9KiBnYNLzrc1N3pyKUCww2RNrfHDViqDWWE1LCJQtQ==
   /@types/responselike/1.0.0:
     dependencies:
-      '@types/node': 14.14.22
-    dev: true
+      '@types/node': 14.14.25
     resolution:
       integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==
   /@ungap/promise-all-settled/1.1.2:
@@ -1312,7 +1343,7 @@ packages:
       call-bind: 1.0.2
       define-properties: 1.1.3
       es-abstract: 1.18.0-next.2
-      get-intrinsic: 1.1.0
+      get-intrinsic: 1.1.1
       is-string: 1.0.5
     dev: true
     engines:
@@ -1409,7 +1440,6 @@ packages:
     resolution:
       integrity: sha512-GSkLsbvDr+FIwjNSJ8OwzWAyuznEYGTAd1pzb/Kr0FMLuV4vqYJTyjboDTwmlUNAG6jAU3PFWzqIdKrOt1D8tw==
   /cacheable-lookup/5.0.4:
-    dev: true
     engines:
       node: '>=10.6.0'
     resolution:
@@ -1423,7 +1453,6 @@ packages:
       lowercase-keys: 2.0.0
       normalize-url: 4.5.0
       responselike: 2.0.0
-    dev: true
     engines:
       node: '>=8'
     resolution:
@@ -1431,7 +1460,7 @@ packages:
   /call-bind/1.0.2:
     dependencies:
       function-bind: 1.1.1
-      get-intrinsic: 1.1.0
+      get-intrinsic: 1.1.1
     dev: true
     resolution:
       integrity: sha512-7O+FbCihrB5WGbFYesctwmTKae6rOiIzmz1icreWJ+0aA7LJfuqhEso2T9ncpcFtzMQtzXf2QGGueWJGTYsqrA==
@@ -1528,7 +1557,6 @@ packages:
   /clone-response/1.0.2:
     dependencies:
       mimic-response: 1.0.1
-    dev: true
     resolution:
       integrity: sha1-0dyXOSAxTfZ/vrlCI7TuNQI56Ws=
   /codecov/3.8.1:
@@ -1679,7 +1707,6 @@ packages:
   /decompress-response/6.0.0:
     dependencies:
       mimic-response: 3.1.0
-    dev: true
     engines:
       node: '>=10'
     resolution:
@@ -1697,7 +1724,6 @@ packages:
     resolution:
       integrity: sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
   /defer-to-connect/2.0.0:
-    dev: true
     engines:
       node: '>=10'
     resolution:
@@ -1754,7 +1780,6 @@ packages:
   /end-of-stream/1.4.4:
     dependencies:
       once: 1.4.0
-    dev: true
     resolution:
       integrity: sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==
   /enquirer/2.3.6:
@@ -1776,7 +1801,7 @@ packages:
       call-bind: 1.0.2
       es-to-primitive: 1.2.1
       function-bind: 1.1.1
-      get-intrinsic: 1.1.0
+      get-intrinsic: 1.1.1
       has: 1.0.3
       has-symbols: 1.0.1
       is-callable: 1.2.3
@@ -2171,18 +2196,17 @@ packages:
     dev: true
     resolution:
       integrity: sha1-6td0q+5y4gQJQzoGY2YCPdaIekE=
-  /get-intrinsic/1.1.0:
+  /get-intrinsic/1.1.1:
     dependencies:
       function-bind: 1.1.1
       has: 1.0.3
       has-symbols: 1.0.1
     dev: true
     resolution:
-      integrity: sha512-M11rgtQp5GZMZzDL7jLTNxbDfurpzuau5uqRWDPvlHjfvg3TdScAZo96GLvhMjImrmR8uAt0FS2RLoMrfWGKlg==
+      integrity: sha512-kWZrnVM42QCiEA2Ig1bG8zjoIMOgxWwYCEeNdwY6Tv/cOSeGpcoX4pXHfKUxNKVoArnrEr2e9srnAxxGIraS9Q==
   /get-stream/5.2.0:
     dependencies:
       pump: 3.0.0
-    dev: true
     engines:
       node: '>=8'
     resolution:
@@ -2233,7 +2257,6 @@ packages:
       lowercase-keys: 2.0.0
       p-cancelable: 2.0.0
       responselike: 2.0.0
-    dev: true
     engines:
       node: '>=10.19.0'
     resolution:
@@ -2288,7 +2311,6 @@ packages:
     resolution:
       integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==
   /http-cache-semantics/4.1.0:
-    dev: true
     resolution:
       integrity: sha512-carPklcUh7ROWRK7Cv27RPtdhYhUsela/ue5/jKzjegVvXDqM2ILE9Q2BGn9JZJh1g87cp56su/FgQSzcWS8cQ==
   /http-proxy-agent/4.0.1:
@@ -2305,7 +2327,6 @@ packages:
     dependencies:
       quick-lru: 5.1.1
       resolve-alpn: 1.0.0
-    dev: true
     engines:
       node: '>=10.19.0'
     resolution:
@@ -2532,7 +2553,6 @@ packages:
     resolution:
       integrity: sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==
   /json-buffer/3.0.1:
-    dev: true
     resolution:
       integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==
   /json-parse-better-errors/1.0.2:
@@ -2570,7 +2590,6 @@ packages:
   /keyv/4.0.3:
     dependencies:
       json-buffer: 3.0.1
-    dev: true
     resolution:
       integrity: sha512-zdGa2TOpSZPq5mU6iowDARnMBZgtCqJ11dJROFi6tg6kTn4nuUdU09lFyLFSaHrWqpIJ+EBq4E8/Dc0Vx5vLdA==
   /levn/0.4.1:
@@ -2643,7 +2662,6 @@ packages:
     resolution:
       integrity: sha512-FN8JBzLx6CzeMrB0tg6pqlGU1wCrXW+ZXGH481kfsBqer0hToTIiHdjH4Mq8xJUbvATujKCvaREGWpGUionraA==
   /lowercase-keys/2.0.0:
-    dev: true
     engines:
       node: '>=8'
     resolution:
@@ -2671,13 +2689,11 @@ packages:
     resolution:
       integrity: sha1-htcJCzDORV1j+64S3aUaR93K+bI=
   /mimic-response/1.0.1:
-    dev: true
     engines:
       node: '>=4'
     resolution:
       integrity: sha512-j5EctnkH7amfV/q5Hgmoal1g2QHFJRraOtmx0JpIqkxhBhI/lJSl1nMpQ45hVarwNETOoWEimndZ4QK0RHxuxQ==
   /mimic-response/3.1.0:
-    dev: true
     engines:
       node: '>=10'
     resolution:
@@ -2785,7 +2801,6 @@ packages:
     resolution:
       integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
   /normalize-url/4.5.0:
-    dev: true
     engines:
       node: '>=8'
     resolution:
@@ -2853,7 +2868,6 @@ packages:
   /once/1.4.0:
     dependencies:
       wrappy: 1.0.2
-    dev: true
     resolution:
       integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
   /optionator/0.9.1:
@@ -2870,7 +2884,6 @@ packages:
     resolution:
       integrity: sha512-74RlY5FCnhq4jRxVUPKDaRwrVNXMqsGsiW6AJw4XK8hmtm10wC0ypZBLw5IIp85NZMr91+qd1RvvENwg7jjRFw==
   /p-cancelable/2.0.0:
-    dev: true
     engines:
       node: '>=8'
     resolution:
@@ -3063,7 +3076,6 @@ packages:
     dependencies:
       end-of-stream: 1.4.4
       once: 1.4.0
-    dev: true
     resolution:
       integrity: sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww==
   /punycode/2.1.1:
@@ -3073,7 +3085,6 @@ packages:
     resolution:
       integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
   /quick-lru/5.1.1:
-    dev: true
     engines:
       node: '>=10'
     resolution:
@@ -3199,7 +3210,6 @@ packages:
     resolution:
       integrity: sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==
   /resolve-alpn/1.0.0:
-    dev: true
     resolution:
       integrity: sha512-rTuiIEqFmGxne4IovivKSDzld2lWW9QCjqv80SYjPgf+gS35eaCAjaP54CCwGAwBtnCsvNLYtqxe1Nw+i6JEmA==
   /resolve-from/4.0.0:
@@ -3218,7 +3228,6 @@ packages:
   /responselike/2.0.0:
     dependencies:
       lowercase-keys: 2.0.0
-    dev: true
     resolution:
       integrity: sha512-xH48u3FTB9VsZw7R+vvgaKeLKzT6jOogbQhEe/jewwnZgzPcnyWui2Av6JpoYZF/91uueC+lqhWqeURw5/qhCw==
   /rimraf/3.0.2:
@@ -3674,7 +3683,6 @@ packages:
     resolution:
       integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
   /wrappy/1.0.2:
-    dev: true
     resolution:
       integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
   /y18n/4.0.1:
@@ -3750,3 +3758,9 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+  github.com/uNetworking/uWebSockets.js/b4bc740f46f1508c0f342b999db4d1f9dc80deab:
+    dev: false
+    name: uWebSockets.js
+    resolution:
+      tarball: https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/b4bc740f46f1508c0f342b999db4d1f9dc80deab
+    version: 18.14.0
