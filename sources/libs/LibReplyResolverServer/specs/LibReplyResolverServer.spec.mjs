@@ -91,17 +91,25 @@ describe('LibReplyResolverServer', () => {
     expect(reply).to.equal((replies[0]).reply);
   });
 
-  it.only('should fail to start the server w/ indefined config', async () => {
-    const undefinedConfig = null;
-    let error = null;
+  it.only('should fail to start the server w/ undefined config', async () => {
+    const configs = Object.freeze([
+      {
+        config: null,
+        exception: ReferenceError,
+      },
+    ]);
 
-    try {
-      // eslint-disable-next-line no-new
-      new LibReplyResolverServer(undefinedConfig);
-    } catch (referenceError) {
-      error = referenceError;
-    } finally {
-      expect(error).to.be.an.instanceof(ReferenceError);
+    for (const config of configs) {
+      let error = null;
+
+      try {
+        // eslint-disable-next-line no-new
+        new LibReplyResolverServer(config.config);
+      } catch (anError) {
+        error = anError;
+      } finally {
+        expect(error).to.be.an.instanceof(config.exception);
+      }
     }
   });
 });

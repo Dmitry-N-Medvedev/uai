@@ -40,27 +40,30 @@ export class LibReplyResolverServer {
     }
 
     this.#libRedisAdapter = new LibRedisAdapter();
-
-    const LibReplyResolverConfig = Object.freeze({
-      redis: await this.#libRedisAdapter.newInstance(this.#config.redis, 'LibReplyResolver'),
+    this.#libReplyResolver = new LibReplyResolver({
+      redis: await this.#libRedisAdapter.newInstance(this.#config.redis, this.constructor.name),
     });
 
-    this.#libReplyResolver = new LibReplyResolver(LibReplyResolverConfig);
+    return new Promise((resolve, reject) => {
+      try {
+        this.#server = uWS
+          .App({})
+          .post('/resolve', (res, req) => resolveReply(res, req, this.#libReplyResolver, this.#debuglog))
+          .listen(ALL_NET_INTERFACES, this.#config.uWS.port, (handle = null) => {
+            if (handle === null) {
+              throw new Error(`failed to listen on port ${this.#config.uWS.port}`);
+            }
 
-    this.#server = uWS
-      .App({})
-      .post('/resolve', (res, req) => resolveReply(res, req, this.#libReplyResolver, this.#debuglog))
-      .listen(ALL_NET_INTERFACES, this.#config.uWS.port, (handle = null) => {
-        if (handle === null) {
-          throw new Error(`failed to listen on port ${this.#config.uWS.port}`);
-        }
+            this.#handle = handle;
 
-        this.#handle = handle;
+            this.#debuglog(`started on port ${this.#config.uWS.port}`);
 
-        this.#debuglog(`started on port ${this.#config.uWS.port}`);
-      });
-
-    return undefined;
+            resolve();
+          });
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 
   async stop() {
