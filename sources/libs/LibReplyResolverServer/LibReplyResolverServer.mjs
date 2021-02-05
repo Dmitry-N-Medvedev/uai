@@ -10,6 +10,7 @@ import {
   resolveReply,
 } from './handlers/resolveReply.mjs';
 
+// FIXME: this should be in a shared lib
 const ALL_NET_INTERFACES = '0.0.0.0';
 
 export class LibReplyResolverServer {
@@ -28,6 +29,7 @@ export class LibReplyResolverServer {
 
     this.#debuglog = util.debuglog(this.constructor.name);
 
+    // FIXME: validation must be done via [ajv](https://github.com/ajv-validator/ajv)
     if (typeof config.uWS.port === 'undefined' || config.uWS.port === null) {
       throw new ReferenceError('uWS.port is undefined');
     }

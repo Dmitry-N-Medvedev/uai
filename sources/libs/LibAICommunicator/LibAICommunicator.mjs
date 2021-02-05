@@ -22,6 +22,8 @@ export class LibAICommunicator {
     this.#degublog = util.debuglog(this.constructor.name);
     this.#config = Object.freeze({ ...config });
     this.#nanoid = customAlphabet('abcdef0123456789', 24);
+
+    this.#degublog(this.#config);
   }
 
   async start() {

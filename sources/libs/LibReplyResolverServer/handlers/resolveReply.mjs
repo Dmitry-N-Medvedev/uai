@@ -2,15 +2,16 @@ import {
   readJson,
 } from '../helpers/readJson.mjs';
 
+// FIXME: move it to a shared lib
 const OK_STATUS = '200 OK';
 
-export const resolveReply = async (res, req, libReplyResolver = null, logger = null) => {
+export const resolveReply = async (res, req, libReplyResolver = null, debuglog = null) => {
   if (libReplyResolver === null) {
     throw new ReferenceError('libReplyResolver is undefined');
   }
 
-  if (logger === null) {
-    throw new ReferenceError('logger is undefined');
+  if (debuglog === null) {
+    throw new ReferenceError('debuglog is undefined');
   }
 
   res.aborted = false;
@@ -19,15 +20,15 @@ export const resolveReply = async (res, req, libReplyResolver = null, logger = n
     res.aborted = true;
   });
 
-  const byIntent = await readJson(res, req, logger);
+  const byIntent = await readJson(res, req, debuglog);
 
-  logger({
+  debuglog({
     byIntent,
   });
 
   const reply = await libReplyResolver.resolveReply(byIntent) ?? null;
 
-  logger({
+  debuglog({
     reply,
   });
 
