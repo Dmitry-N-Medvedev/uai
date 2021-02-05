@@ -76,11 +76,13 @@ describe('LibAICommunicatorServer', () => {
     });
 
     const reply = await client.post('say', {
-      body: 'Hello',
+      body: JSON.stringify({
+        message: 'Hello',
+      }),
     });
 
     debuglog({ reply });
 
     expect(reply).to.exist;
-  }).timeout(0);
+  }).timeout(1500);
 });

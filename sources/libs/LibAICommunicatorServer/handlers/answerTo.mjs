@@ -18,7 +18,7 @@ let log = null;
  * @returns
  */
 const apiClient = (prefixUrl = null, apiKey = null) => {
-  console.log(`apiClient (prefixUrl = ${prefixUrl}, apiKey = ${apiKey})`);
+  log(`apiClient (prefixUrl = ${prefixUrl}, apiKey = ${apiKey})`);
 
   if (prefixUrl === null) {
     throw new ReferenceError('prefixUrl is undefined');
@@ -49,7 +49,7 @@ const apiClient = (prefixUrl = null, apiKey = null) => {
  * @returns
  */
 const replyClient = (prefixUrl = null) => {
-  console.log(`replyClient (prefixUrl = ${prefixUrl})`);
+  log(`replyClient (prefixUrl = ${prefixUrl})`);
 
   if (prefixUrl === null) {
     throw new ReferenceError('prefixUrl is undefined');
@@ -79,10 +79,8 @@ const initClients = () => {
   }
 
   if (ReplyClient === null) {
-    ReplyClient = replyClient(`${conf.replyResolverServer.host}:${conf.replyResolverServer.port}`);
+    ReplyClient = replyClient(`http://${conf.replyResolverServer.host}:${conf.replyResolverServer.port}`);
   }
-
-  log('.initClients done');
 };
 
 const retrieveIntentsFromAI = async (client = null, message = null) => client.post({
@@ -112,7 +110,7 @@ export const answerTo = async (res = null, req = null) => {
   // const intents = await libAICommunicator.getIntents(humanSaid);
 
   //  * 1. read message from the body
-  const message = await readJson(res, req, log);
+  const { message } = await readJson(res, req, log);
 
   log({
     message,
@@ -136,5 +134,7 @@ export const answerTo = async (res = null, req = null) => {
     reply,
   });
   //  * 7. send the message back to the client via res
-  res.writeStatus(OK_STATUS).end(reply);
+  if (res.aborted === false) {
+    res.writeStatus(OK_STATUS).end(reply);
+  }
 };

@@ -5,12 +5,14 @@ export const readJson = (res, req, debuglog = null) => new Promise((resolve, rej
 
   res.onAborted(() => reject());
 
-  let buffer;
+  let buffer = null;
 
-  res.onData((ab, isLast) => {
+  res.onData((ab, isLast = false) => {
     const chunk = Buffer.from(ab);
 
-    if (isLast) {
+    debuglog(`readJson.onData: "${chunk.toString()}", isLast: ${isLast}`);
+
+    if (isLast === true) {
       let json;
 
       if (buffer) {
@@ -27,8 +29,6 @@ export const readJson = (res, req, debuglog = null) => new Promise((resolve, rej
         } catch (e) {
           reject(e);
         }
-
-        debuglog(json);
 
         resolve(json);
       }
